@@ -17,20 +17,21 @@ local function PlayATMAnimation(animation)
         TaskPlayAnim(playerPed, 'amb@prop_human_atm@male@exit', "exit", 1.0,-1.0, 3000, 1, 1, true, true, true)
     end
 end
+--Add Target
 
-local listen = false
-local function Listen4Control()
-    CreateThread(function()
-        listen = true
-        while listen do
-            if IsControlJustPressed(0, 38) then -- E
-                    exports["qb-core"]:KeyPressed()
-                    TriggerServerEvent("qb-atms:server:enteratm")
-                listen = false
-                break
-            end
-            Wait(1)
-        end
+local listen = false 
+local function Listen4Control() 
+    CreateThread(function() 
+        listen = true 
+        while listen do 
+            if IsControlJustPressed(0, 38) then -- E 
+                    exports["qb-core"]:KeyPressed() 
+                    TriggerServerEvent("qb-atms:server:enteratm") 
+                listen = false 
+                break 
+            end 
+            Wait(1) 
+        end 
     end)
 end
 
